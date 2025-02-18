@@ -3,7 +3,7 @@ name: Deploy React App
 on:
   push:
     branches:
-      - main  # Change to your default branch if need
+      - main  # Change to your default branch if needed
 
 jobs:
   build-deploy:
@@ -32,3 +32,4 @@ jobs:
       with:
         branch: gh-pages
         folder: build
+        token: ${{ secrets.GH_TOKEN }}  # Use the token from secrets
