@@ -1,2 +1,0 @@
-# simpletest
-fort testing 
