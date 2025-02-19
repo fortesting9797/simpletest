@@ -1,9 +1,8 @@
 name: Deploy React App
 
 on:
-  push:
-    branches:
-      - main  # Change to your default branch if needed
+  push:  # Run on every push to any branch
+  pull_request:  # Run on every pull request
 
 jobs:
   build-deploy:
@@ -28,8 +27,9 @@ jobs:
       run: npm run build
 
     - name: Deploy to GitHub Pages
+      if: github.ref == 'refs/heads/main'  # Only deploy if changes are pushed to 'main'
       uses: JamesIves/github-pages-deploy-action@v4
       with:
         branch: gh-pages
         folder: build
-        token: ${{ secrets.GH_TOKEN }}  # Use the token from secrets
+        token: ${{ secrets.GH_TOKEN }}
